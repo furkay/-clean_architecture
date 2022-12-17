@@ -1,6 +1,5 @@
+import 'package:clean_architecture/shared/core/model/core_response.dart';
 import 'package:dio/dio.dart';
-
-import '../model/core_response.dart';
 
 /// Network service interface
 abstract class NetworkService {

@@ -1,21 +1,24 @@
+import 'package:clean_architecture/shared/core/exceptions/failure.dart';
+import 'package:clean_architecture/shared/core_ui_kit/theme/insets/core_page_space.dart';
+import 'package:clean_architecture/shared/core_ui_kit/theme/shape/core_shape.dart';
+import 'package:clean_architecture/shared/core_ui_kit/widget/box/core_space_box.dart';
+import 'package:clean_architecture/shared/core_ui_kit/widget/button/core_button.dart';
+import 'package:clean_architecture/shared/core_ui_kit/widget/text/core_text.dart';
 import 'package:flutter/material.dart';
-
-import '../../../core/exceptions/failure.dart';
-import '../../theme/insets/core_page_space.dart';
-import '../../theme/shape/core_shape.dart';
-import '../box/core_space_box.dart';
-import '../button/core_button.dart';
-import '../text/core_text.dart';
 
 /// [CoreErrorDialog] is a widget that shows an error dialog.
 class CoreErrorDialog extends StatelessWidget {
   /// [CoreErrorDialog] constructor.
-  const CoreErrorDialog(
-      {super.key, required this.failure, required this.completeButtonText});
+  const CoreErrorDialog({
+    super.key,
+    required this.failure,
+    required this.completeButtonText,
+  });
 
   /// [failure] is a [Failure] object.
   final Failure failure;
 
+  /// [completeButtonText] is a text that shows on the button.
   final String completeButtonText;
   @override
   Widget build(BuildContext context) {

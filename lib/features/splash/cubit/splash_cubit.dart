@@ -1,7 +1,7 @@
-import 'package:bloc/bloc.dart';
 import 'package:clean_architecture/common/di/injectable.dart';
 import 'package:clean_architecture/shared/core/exceptions/failure.dart';
 import 'package:clean_architecture/shared/core/page_status/page_status.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'splash_state.dart';

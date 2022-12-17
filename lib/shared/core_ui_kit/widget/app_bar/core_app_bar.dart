@@ -1,8 +1,7 @@
+import 'package:clean_architecture/shared/core_ui_kit/theme/color/core_color.dart';
+import 'package:clean_architecture/shared/core_ui_kit/widget/button/core_button.dart';
+import 'package:clean_architecture/shared/core_ui_kit/widget/text/core_text.dart';
 import 'package:flutter/material.dart';
-
-import '../../theme/color/core_color.dart';
-import '../button/core_button.dart';
-import '../text/core_text.dart';
 
 /// [CoreAppBar] is a [AppBar].
 class CoreAppBar extends AppBar {

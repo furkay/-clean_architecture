@@ -1,6 +1,5 @@
+import 'package:clean_architecture/shared/core_ui_kit/theme/radius/core_radius.dart';
 import 'package:flutter/material.dart';
-
-import '../radius/core_radius.dart';
 
 /// This class is used to define the component shape.
 @immutable

@@ -1,4 +1,4 @@
-import 'repository.dart';
+import 'package:clean_architecture/shared/core/repository.dart';
 
 /// [UseCase] is a base class for all use cases.
 abstract class UseCase<T, S> {

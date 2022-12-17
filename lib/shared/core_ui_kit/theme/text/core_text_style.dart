@@ -1,6 +1,5 @@
+import 'package:clean_architecture/shared/core_ui_kit/theme/color/core_color.dart';
 import 'package:flutter/cupertino.dart';
-
-import '../color/core_color.dart';
 
 ///[CoreTextStyle] is a class that contains the styles of the text.
 class CoreTextStyle {

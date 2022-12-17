@@ -1,6 +1,5 @@
+import 'package:clean_architecture/shared/core/page_status/page_status.dart';
 import 'package:flutter/material.dart';
-
-import 'page_status.dart';
 
 /// [PageStatusExtension] is builds a widget based on the [PageStatus].
 extension PageStatusExtension on PageStatus {

@@ -1,6 +1,5 @@
+import 'package:clean_architecture/shared/core_ui_kit/theme/color/core_color.dart';
 import 'package:flutter/material.dart';
-
-import 'color/core_color.dart';
 
 /// The core theme of the app.
 class CoreTheme {

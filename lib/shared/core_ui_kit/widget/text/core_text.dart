@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:clean_architecture/shared/core_ui_kit/theme/text/core_text_style.dart';
 import 'package:flutter/material.dart';
-
-import '../../theme/text/core_text_style.dart';
 
 /// A widget that automatically resizes text to fit perfectly within its bounds.
 @immutable
