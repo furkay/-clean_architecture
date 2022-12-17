@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:clean_architecture/common/routes/app_router.gr.dart';
-import 'package:clean_architecture/features/splash/cubit/splash_cubit.dart';
+import 'package:clean_architecture/features/splash/cubit/splash_page_cubit.dart';
 import 'package:clean_architecture/shared/core/page_status/page_status.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,12 +12,12 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<SplashCubit>(
-      create: (context) => SplashCubit()..init(),
-      child: BlocListener<SplashCubit, SplashState>(
+    return BlocProvider<SplashPageCubit>(
+      create: (context) => SplashPageCubit()..init(),
+      child: BlocListener<SplashPageCubit, SplashPageState>(
         listener: (context, state) {
           if (state.status == PageStatus.loaded) {
-            context.pushRoute(const PostsPageRoute());
+            context.replaceRoute(const PostsPageRoute());
           }
         },
         child: const Scaffold(

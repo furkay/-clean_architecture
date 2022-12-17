@@ -1,41 +1,44 @@
+import 'package:clean_architecture/shared/core/exceptions/failure.dart';
 import 'package:clean_architecture/shared/core/model/core_response.dart';
+import 'package:clean_architecture/shared/core/service/dio_manager.dart';
+import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 /// Network service interface
 abstract class NetworkService {
   /// [NetworkService] is a base class for all network services.
-  NetworkService(this.dio);
+  NetworkService(this.dioManager);
 
-  /// [dio] is used to define the dio.
-  final Dio dio;
+  /// [dioManager] is a dio instance.
+  final DioManager dioManager;
 
-  /// [init] is used to define the init.
-  Future<void> init();
-
-  /// [get] is used to define the get.
-  Future<CoreResponse> get(
+  /// [send] is a method that is used to initialize the service.
+  Future<Either<Failure, CoreResponse<dynamic>>> send(
     String path, {
+    required RequestType method,
+    String? urlSuffix,
     Map<String, dynamic>? queryParameters,
+    Options? options,
   });
+}
 
-  /// [post] is used to define the post.
-  Future<CoreResponse> post(
-    String path, {
-    Map<String, dynamic>? queryParameters,
-    dynamic data,
-  });
+/// [RequestType] is an enum that contains all request types.
+enum RequestType {
+  /// [RequestType.get] is a get request.
+  get,
 
-  /// [put] is used to define the put.
-  Future<CoreResponse> put(
-    String path, {
-    Map<String, dynamic>? queryParameters,
-    dynamic data,
-  });
+  /// [RequestType.post] is a post request.
+  post,
 
-  /// [delete] is used to define the delete.
-  Future<CoreResponse> delete(
-    String path, {
-    Map<String, dynamic>? queryParameters,
-    dynamic data,
-  });
+  /// [RequestType.delete] is a patch request.
+  delete,
+
+  /// [RequestType.put] is a put request.
+  put,
+
+  /// [RequestType.download] is a download request.
+  download,
+
+  /// [RequestType.upload] is a upload request.
+  upload,
 }

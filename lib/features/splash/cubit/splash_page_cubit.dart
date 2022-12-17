@@ -4,13 +4,13 @@ import 'package:clean_architecture/shared/core/page_status/page_status.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'splash_state.dart';
-part 'splash_cubit.freezed.dart';
+part 'splash_page_state.dart';
+part 'splash_page_cubit.freezed.dart';
 
 /// Splash Cubit
-class SplashCubit extends Cubit<SplashState> {
+class SplashPageCubit extends Cubit<SplashPageState> {
   /// Splash Cubit constructor
-  SplashCubit() : super(SplashState.initial());
+  SplashPageCubit() : super(SplashPageState.initial());
 
   /// Init
   Future<void> init() async {
