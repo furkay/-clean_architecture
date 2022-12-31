@@ -11,7 +11,7 @@ import 'package:clean_architecture/features/post/data/data_sources/post_data_sou
     as _i6;
 import 'package:clean_architecture/features/post/data/repositories/post_repository_impl.dart'
     as _i8;
-import 'package:clean_architecture/features/post/data/services/post_service.dart'
+import 'package:clean_architecture/features/post/data/services/post_client.dart'
     as _i4;
 import 'package:clean_architecture/features/post/domain/repositories/post_repository.dart'
     as _i7;
@@ -19,7 +19,9 @@ import 'package:clean_architecture/features/post/domain/use_cases/get_post_use_c
     as _i9;
 import 'package:clean_architecture/features/post/presentation/cubit/posts_page_cubit.dart'
     as _i10;
-import 'package:clean_architecture/shared/core/service/dio_manager.dart' as _i3;
+import 'package:clean_architecture/shared/core/service/register_module.dart'
+    as _i11;
+import 'package:dio/dio.dart' as _i3;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
@@ -36,10 +38,18 @@ _i1.GetIt $initGetIt(
     environment,
     environmentFilter,
   );
-  gh.singleton<_i3.DioManager>(_i3.DioManager()..init());
-  gh.factory<_i4.PostService>(() => _i4.PostService(gh<_i3.DioManager>()));
+  final registerModule = _$RegisterModule();
+  gh.singleton<_i3.Dio>(registerModule.dio());
+  gh.factoryParam<_i4.PostClient, String?, dynamic>((
+    baseUrl,
+    _,
+  ) =>
+      _i4.PostClient(
+        gh<_i3.Dio>(),
+        baseUrl: baseUrl,
+      ));
   gh.factory<_i5.PostDataSource>(
-      () => _i6.PostDataSourceImpl(gh<_i4.PostService>()));
+      () => _i6.PostDataSourceImpl(gh<_i4.PostClient>()));
   gh.factory<_i7.PostRepository>(
       () => _i8.PostRepositoryImpl(gh<_i5.PostDataSource>()));
   gh.factory<_i9.GetPostUseCase>(
@@ -48,3 +58,5 @@ _i1.GetIt $initGetIt(
       () => _i10.PostsPageCubit(gh<_i9.GetPostUseCase>()));
   return getIt;
 }
+
+class _$RegisterModule extends _i11.RegisterModule {}

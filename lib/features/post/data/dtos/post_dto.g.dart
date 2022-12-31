@@ -6,14 +6,15 @@ part of 'post_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-PostDto _$PostDtoFromJson(Map<String, dynamic> json) => PostDto(
+_$_PostDto _$$_PostDtoFromJson(Map<String, dynamic> json) => _$_PostDto(
       id: json['id'] as int,
       userId: json['userId'] as int,
       title: json['title'] as String?,
       body: json['body'] as String?,
     );
 
-Map<String, dynamic> _$PostDtoToJson(PostDto instance) => <String, dynamic>{
+Map<String, dynamic> _$$_PostDtoToJson(_$_PostDto instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'userId': instance.userId,
       'title': instance.title,

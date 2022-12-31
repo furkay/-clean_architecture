@@ -3,7 +3,6 @@ part 'post_dto.g.dart';
 part 'post_dto.freezed.dart';
 
 @freezed
-@JsonSerializable()
 
 /// PostDto is a data transfer object that is used to transfer data from the
 class PostDto with _$PostDto {
@@ -17,5 +16,6 @@ class PostDto with _$PostDto {
   const PostDto._();
 
   /// PostDto is a data transfer object that is used to transfer data from the
-  factory PostDto.fromMap(Map<String, dynamic> json) => _$PostDtoFromJson(json);
+  factory PostDto.fromJson(Map<String, Object?> json) =>
+      _$PostDtoFromJson(json);
 }

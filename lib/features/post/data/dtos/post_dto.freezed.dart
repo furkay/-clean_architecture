@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+PostDto _$PostDtoFromJson(Map<String, dynamic> json) {
+  return _PostDto.fromJson(json);
+}
+
 /// @nodoc
 mixin _$PostDto {
   int get id => throw _privateConstructorUsedError;
@@ -21,6 +25,7 @@ mixin _$PostDto {
   String? get title => throw _privateConstructorUsedError;
   String? get body => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PostDtoCopyWith<PostDto> get copyWith => throw _privateConstructorUsedError;
 }
@@ -119,11 +124,14 @@ class __$$_PostDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_PostDto extends _PostDto {
   const _$_PostDto(
       {required this.id, required this.userId, this.title, this.body})
       : super._();
+
+  factory _$_PostDto.fromJson(Map<String, dynamic> json) =>
+      _$$_PostDtoFromJson(json);
 
   @override
   final int id;
@@ -150,6 +158,7 @@ class _$_PostDto extends _PostDto {
             (identical(other.body, body) || other.body == body));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, userId, title, body);
 
@@ -158,6 +167,13 @@ class _$_PostDto extends _PostDto {
   @pragma('vm:prefer-inline')
   _$$_PostDtoCopyWith<_$_PostDto> get copyWith =>
       __$$_PostDtoCopyWithImpl<_$_PostDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_PostDtoToJson(
+      this,
+    );
+  }
 }
 
 abstract class _PostDto extends PostDto {
@@ -167,6 +183,8 @@ abstract class _PostDto extends PostDto {
       final String? title,
       final String? body}) = _$_PostDto;
   const _PostDto._() : super._();
+
+  factory _PostDto.fromJson(Map<String, dynamic> json) = _$_PostDto.fromJson;
 
   @override
   int get id;
