@@ -13,7 +13,7 @@ extension PageStatusExtension on PageStatus {
   }) {
     switch (this) {
       case PageStatus.initial:
-        return onLoading;
+        return initial;
       case PageStatus.loading:
         return onLoading;
       case PageStatus.empty:
